@@ -5,36 +5,56 @@ import { of } from 'rxjs/observable/of';
 
 
 @Injectable()
+
+
 export class ProviderServizio {
-  oggetti: itemprestati[] = [];
+  prestiti: itemprestati[] = [];
   date: string = new Date().toISOString();
   constructor() {
-    this.oggetti = [
+    this.prestiti = [
     {id: 1, 
     nome: 'videogioco',  
     data: this.date, 
-    foto: 'img1'},
+    foto: 'img1',
+    persona:'Pietro'},
+
+    
     {id: 2, 
     nome: 'scarpe',  
     data: this.date, 
-    foto: 'img2'}];
+    foto: 'img2',
+    persona:'Giacomo'},
+
+
+  { id: 3, 
+    nome: 'Macchina',  
+    data: this.date, 
+    foto: 'img2',
+    persona:'Leonardo'}];
   }
   
-  addItem(oggetto: itemprestati): void {
-    this.oggetti.push(oggetto);
+  
+  
+  
+  
+  getdelprestito(id: number): Observable<itemprestati> { 
+    return of(this.prestiti.find(prestito => prestito.id === id));
+  }
+
+
+  getdelloggetto(): Observable<itemprestati[]> {
+    return of(this.prestiti);
   }
   
-  getOggetti(): Observable<itemprestati[]> {
-    return of(this.oggetti);
+
+  addItem(prestito: itemprestati): void {
+    this.prestiti.push(prestito);
   }
-  
-  getOggetto(id: number): Observable<itemprestati> { 
-    return of(this.oggetti.find(oggetto => oggetto.id === id));
-  }
-  
+
+
   removeItem(id: number): void{
-    this.oggetti.forEach((item, index) => {
-      if(item.id === id) this.oggetti.splice(index,1);
+    this.prestiti.forEach((item, index) => {
+      if(item.id === id) this.prestiti.splice(index,1);
     });
     alert('rimosso');
   }

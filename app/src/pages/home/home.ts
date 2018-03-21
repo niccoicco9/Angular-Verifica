@@ -9,17 +9,21 @@ import { ProviderServizio } from '../../providers/oggettiprovider/oggettiprovide
   templateUrl: 'home.html'
 })
 export class HomePage {
-  oggetti: itemprestati[] = [];
-  constructor(private oggettoProvider: ProviderServizio, public navCtrl: NavController) {
-    this.oggettoProvider.getOggetti().subscribe(oggetti => this.oggetti = oggetti);
+  prestiti: itemprestati[] = [];
+  constructor(private prestitoProvider: ProviderServizio, public navCtrl: NavController) {
+    this.prestitoProvider .getdelloggetto().subscribe(prestiti => this.prestiti = prestiti);
   }
+  
+ 
+  modificaItem(prestito: itemprestati) {
+    this.navCtrl.push(ModicaAggiungi, {selector: 'modifica', prestito: prestito} );
+  }
+
   addItem(){
     this.navCtrl.push(ModicaAggiungi, {selector: 'Aggiungi'});
   }
-  removeItem(oggetto: itemprestati){
-    this.oggettoProvider.removeItem(oggetto.id);
-  }
-  modificaItem(oggetto: itemprestati) {
-    this.navCtrl.push(ModicaAggiungi, {selector: 'modifica', oggetto: oggetto} );
+
+  removeItem(prestito: itemprestati){
+    this.prestitoProvider.removeItem(prestito.id);
   }
 }

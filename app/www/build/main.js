@@ -24,29 +24,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the AddModifyPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 var ModicaAggiungi = /** @class */ (function () {
-    function ModicaAggiungi(oggettoProvider, navCtrl, navParams) {
-        this.oggettoProvider = oggettoProvider;
+    function ModicaAggiungi(prestitoProvider, navCtrl, navParams) {
+        this.prestitoProvider = prestitoProvider;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.selector = this.navParams.get('selector');
-        this.selector === 'modifica' ? this.modifyPage() : this.createPage();
+        this.selector === 'modifica' ? this.modificatore() : this.creatore();
     }
-    ModicaAggiungi.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AddModifyPage');
+    ModicaAggiungi.prototype.creatore = function () {
+        this.prestito = new __WEBPACK_IMPORTED_MODULE_2__models_modello__["a" /* itemprestati */];
+        this.prestito.data = new Date().toISOString();
     };
-    ModicaAggiungi.prototype.modifyPage = function () {
-        this.oggetto = this.navParams.get('oggetto');
-    };
-    ModicaAggiungi.prototype.createPage = function () {
-        this.oggetto = new __WEBPACK_IMPORTED_MODULE_2__models_modello__["a" /* itemprestati */];
-        this.oggetto.data = new Date().toISOString();
+    ModicaAggiungi.prototype.modificatore = function () {
+        this.prestito = this.navParams.get('prestito');
     };
     ModicaAggiungi.prototype.modificaEff = function () {
         alert('modificato');
@@ -54,16 +45,17 @@ var ModicaAggiungi = /** @class */ (function () {
     };
     ModicaAggiungi.prototype.aggMemo = function () {
         alert('aggiunto');
-        this.oggettoProvider.addItem(this.oggetto);
+        this.prestitoProvider.addItem(this.prestito);
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
     };
     ModicaAggiungi = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-interactionpage',template:/*ion-inline-start:"/Users/useracd09/Downloads/verificaangularionic/Angular-Verifica/app/src/pages/interactionpage/interactionpage.html"*/'<ion-header>\n<ion-navbar>\n      <ion-title>{{selector}}</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content padding>\n\n    <form (ngSubmit)="selector === \'modifica\' ? modificaEff() : aggMemo()">\n      <ion-item>\n        <ion-label>Oggetto Prestato</ion-label>\n        <ion-input type="text" [(ngModel)]="oggetto.nome" name="nome"></ion-input>\n      </ion-item>\n      \n      <ion-item>\n        <ion-label>Quando</ion-label>\n        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="oggetto.data" name="data"></ion-datetime>\n      </ion-item>\n      <ion-item>\n\n        <ion-label>Foto</ion-label>\n        <ion-input [(ngModel)]="oggetto.foto" name="foto"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        </ion-item>\n\n      <button ion-button type="submit" block>Aggiungi / Modifica L\'oggetto</button>\n    </form>\n  </ion-content>'/*ion-inline-end:"/Users/useracd09/Downloads/verificaangularionic/Angular-Verifica/app/src/pages/interactionpage/interactionpage.html"*/,
+            selector: 'page-interactionpage',template:/*ion-inline-start:"/Users/useracd09/Downloads/verificaangularionic/Angular-Verifica/app/src/pages/interactionpage/interactionpage.html"*/'<ion-header>\n<ion-navbar>\n      <ion-title>{{selector}}</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content padding>\n\n    <form (ngSubmit)="selector === \'modifica\' ? modificaEff() : aggMemo()">\n      <ion-item>\n        <ion-label>Oggetto Prestato</ion-label>\n        <ion-input type="text" [(ngModel)]="prestito.nome" name="nome"></ion-input>\n      </ion-item>\n\n      \n      <ion-item>\n          <ion-label>A Chi</ion-label>\n          <ion-input type="text" [(ngModel)]="prestito.persona" name="prestito"></ion-input>\n  </ion-item>\n\n\n      <ion-item>\n        <ion-label>Quando</ion-label>\n        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="prestito.data" name="data"></ion-datetime>\n      </ion-item>\n      <ion-item>\n\n     \n\n        <ion-label>Foto</ion-label>\n        <ion-input [(ngModel)]="prestito.foto" name="foto"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        </ion-item>\n\n      <button ion-button type="submit" block>Aggiungi / Modifica L\'oggetto</button>\n    </form>\n  </ion-content>'/*ion-inline-end:"/Users/useracd09/Downloads/verificaangularionic/Angular-Verifica/app/src/pages/interactionpage/interactionpage.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_oggettiprovider_oggettiprovider__["a" /* ProviderServizio */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__providers_oggettiprovider_oggettiprovider__["a" /* ProviderServizio */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_oggettiprovider_oggettiprovider__["a" /* ProviderServizio */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _c || Object])
     ], ModicaAggiungi);
     return ModicaAggiungi;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=interactionpage.js.map
@@ -394,7 +386,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/useracd09/Downloads/verificaangularionic/Angular-Verifica/app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons end>\n      <button (click)="addItem()" ion-button icon-only>\n        <ion-icon name="add-circle-outline"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>Oggetti</h2>\n  <ion-list>\n    <ion-item #item *ngFor="let oggetto of oggetti">\n        <ion-item color="">\n            <ion-avatar item-start>\n                <img src="img/lolloasde.png">\n            </ion-avatar>\n            <h2>{{oggetto.nome}}</h2>\n            <p> data {{oggetto.data | date: \'shortDate\'}}</p>\n        </ion-item>\n        \n          <button ion-button>Visualizza</button>\n          <button ion-button (click)="modificaItem(oggetto)" color="">Modifica</button>\n        \n    \n        \n          <button ion-button (click)="removeItem(oggetto)" color="danger" >Rimuovi</button>\n       \n      </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/useracd09/Downloads/verificaangularionic/Angular-Verifica/app/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/useracd09/Downloads/verificaangularionic/Angular-Verifica/app/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons end>\n      <button (click)="addItem()" ion-button icon-only>\n        <ion-icon name="add-circle-outline"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>Prestiti</h2>\n  <ion-list>\n    <ion-item #item *ngFor="let prestito of prestiti">\n\n\n        <ion-item>\n\n            <ion-avatar item-start>\n                <img src="img/lolloasde.png">\n            </ion-avatar>\n\n      \n            <h4>{{prestito.nome}}</h4>\n            <p>{{prestito.persona}}</p>\n            <p> data {{prestito.data | date: \'shortDate\'}}</p>\n        </ion-item>\n        \n          <button ion-button>Visualizza</button>\n          <button ion-button (click)="modificaItem(prestito)" color="">Modifica</button>\n        \n    \n        \n          <button ion-button (click)="removeItem(prestito)" color="danger" >Rimuovi</button>\n       \n      </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/Users/useracd09/Downloads/verificaangularionic/Angular-Verifica/app/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_oggettiprovider_oggettiprovider__["a" /* ProviderServizio */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
     ], HomePage);
@@ -426,33 +418,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var ProviderServizio = /** @class */ (function () {
     function ProviderServizio() {
-        this.oggetti = [];
+        this.prestiti = [];
         this.date = new Date().toISOString();
-        this.oggetti = [
+        this.prestiti = [
             { id: 1,
                 nome: 'videogioco',
                 data: this.date,
-                foto: 'img1' },
+                foto: 'img1',
+                persona: 'Pietro' },
             { id: 2,
                 nome: 'scarpe',
                 data: this.date,
-                foto: 'img2' }
+                foto: 'img2',
+                persona: 'Giacomo' },
+            { id: 3,
+                nome: 'Macchina',
+                data: this.date,
+                foto: 'img2',
+                persona: 'Leonardo' }
         ];
     }
-    ProviderServizio.prototype.addItem = function (oggetto) {
-        this.oggetti.push(oggetto);
+    ProviderServizio.prototype.getdelprestito = function (id) {
+        return Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_observable_of__["of"])(this.prestiti.find(function (prestito) { return prestito.id === id; }));
     };
-    ProviderServizio.prototype.getOggetti = function () {
-        return Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_observable_of__["of"])(this.oggetti);
+    ProviderServizio.prototype.getdelloggetto = function () {
+        return Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_observable_of__["of"])(this.prestiti);
     };
-    ProviderServizio.prototype.getOggetto = function (id) {
-        return Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_observable_of__["of"])(this.oggetti.find(function (oggetto) { return oggetto.id === id; }));
+    ProviderServizio.prototype.addItem = function (prestito) {
+        this.prestiti.push(prestito);
     };
     ProviderServizio.prototype.removeItem = function (id) {
         var _this = this;
-        this.oggetti.forEach(function (item, index) {
+        this.prestiti.forEach(function (item, index) {
             if (item.id === id)
-                _this.oggetti.splice(index, 1);
+                _this.prestiti.splice(index, 1);
         });
         alert('rimosso');
     };

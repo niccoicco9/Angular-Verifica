@@ -11,17 +11,26 @@
     <form (ngSubmit)="selector === 'modifica' ? modificaEff() : aggMemo()">
       <ion-item>
         <ion-label>Oggetto Prestato</ion-label>
-        <ion-input type="text" [(ngModel)]="oggetto.nome" name="nome"></ion-input>
+        <ion-input type="text" [(ngModel)]="prestito.nome" name="nome"></ion-input>
       </ion-item>
+
       
       <ion-item>
+          <ion-label>A Chi</ion-label>
+          <ion-input type="text" [(ngModel)]="prestito.persona" name="prestito"></ion-input>
+  </ion-item>
+
+
+      <ion-item>
         <ion-label>Quando</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="oggetto.data" name="data"></ion-datetime>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="prestito.data" name="data"></ion-datetime>
       </ion-item>
       <ion-item>
 
+     
+
         <ion-label>Foto</ion-label>
-        <ion-input [(ngModel)]="oggetto.foto" name="foto"></ion-input>
+        <ion-input [(ngModel)]="prestito.foto" name="foto"></ion-input>
       </ion-item>
 
       <ion-item>
