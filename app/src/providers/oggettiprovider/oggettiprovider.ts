@@ -17,7 +17,7 @@ export class ProviderServizio {
     data: this.date, 
     foto: 'img1',
     persona:'Pietro',
-    restituito:false},
+    restituito:true},
 
 
     {id: 2, 
@@ -25,7 +25,7 @@ export class ProviderServizio {
     data: this.date, 
     foto: 'img2',
     persona:'Giacomo',
-    restituito:true},
+    restituito:false},
 
 
   { id: 3, 
@@ -50,15 +50,15 @@ export class ProviderServizio {
   }
   
 
-  addItem(prestito: itemprestati): void {
+  aggiungi(prestito: itemprestati): void {
     this.prestiti.push(prestito);
   }
 
 
-  removeItem(id: number): void{
+  rimuovi(id: number): void{
     this.prestiti.forEach((item, index) => {
       if(item.id === id) this.prestiti.splice(index,1);
     });
-    alert('rimosso');
+    alert('Rimosso con successo');
   }
 }

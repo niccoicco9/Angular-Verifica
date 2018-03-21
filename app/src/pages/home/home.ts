@@ -22,12 +22,12 @@ export class HomePage {
     this.navCtrl.push(ModicaAggiungi, {selector: 'modifica', prestito: prestito} );
   }
 
-  addItem(){
+  aggiungi(){
     this.navCtrl.push(ModicaAggiungi, {selector: 'Aggiungi'});
   }
 
-  removeItem(prestito: itemprestati){
-    this.prestitoProvider.removeItem(prestito.id);
+  rimuovi(prestito: itemprestati){
+    this.prestitoProvider .rimuovi(prestito.id);
   }
 }
 

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
-    <ion-buttons end>
-      <button (click)="addItem()" ion-button icon-only>
+    <ion-buttons start>
+      <button (click)="aggiungi()" ion-button icon-only>
         <ion-icon name="add-circle-outline"></ion-icon>
       </button>
     </ion-buttons>
@@ -12,29 +12,33 @@
 <ion-content padding>
   <h2>Prestiti</h2>
   <ion-list>
-    <ion-item #item *ngFor="let prestito of prestiti">
+    <ion-item-sliding #item *ngFor="let prestito of prestiti">
 
 
-        <ion-card color="{{prestito.restituito ? 'danger' : 'secondary'}}">
-
+        <ion-item color="{{prestito.restituito ? 'secondary' : 'danger'}}">
+          <ion-avatar item-start>
+            <img src="jonny.png">
+          </ion-avatar>
          
-            <div class="center">
-            <h4>{{prestito.nome}}</h4>
-            <p class="persona">{{prestito.persona}}</p>
-            <p class="data"> data {{prestito.data | date: 'shortDate'}}</p>
-          </div>
-            <div id="image">
-              <img src="http://via.placeholder.com/350x150">
-            </div>
+            
+            <h2>{{prestito.nome}}</h2>
+            
+            <p class="data">{{prestito.persona}} -  data {{prestito.data | date: 'dd/MM/yy'}}</p>
+       
+          
 
-        </ion-card>
-        <div class="center">
-          <button ion-button (click)="modificaItem(prestito)" color="">Modifica</button>
+        </ion-item>
+         
         
     
         
-          <button ion-button (click)="removeItem(prestito)" color="danger" >Rimuovi</button>
-        </div>
-      </ion-item>
+          
+
+          <ion-item-options side="right">
+            <button ion-button (click)="modificaItem(prestito)" color="default" >Modifica</button>
+            <button ion-button (click)="rimuovi(prestito)"  color="danger" >Elimina</button>
+
+          </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>

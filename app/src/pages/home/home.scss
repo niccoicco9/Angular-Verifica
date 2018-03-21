@@ -1,33 +1,9 @@
 page-home {
 
 }
-.card-header-ios{
-    padding:7px;
+.list-md .item-block .item-inner{
+    border-bottom:unset;
 }
-.item-ios ion-avatar ion-img, .item-ios ion-avatar img{
-    margin:0 auto;
-}
-.center{
-    text-align:center;
-}
-h4{
-    text-transform: uppercase;
-    padding-top:3%;
-}
-.item-ios p {
-    color:black;
-    padding-bottom:2%;
-}
-.persona{
-    font-size:20px;
-}
-h2{
-    text-align:center;
-}
-.item-ios .item-button{
-    padding:1px 3.5em;
-    
-}
-.item-ios .item-button{
-    
+ion-item-sliding .item{
+    border-bottom:1px solid;
 }
