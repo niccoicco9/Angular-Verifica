@@ -15,7 +15,7 @@
     <ion-item #item *ngFor="let prestito of prestiti">
 
 
-        <ion-item>
+        <ion-item color="{{prestito.restituito ? 'danger' : 'secondary'}}">
 
             <ion-avatar item-start>
                 <img src="img/lolloasde.png">

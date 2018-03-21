@@ -16,21 +16,24 @@ export class ProviderServizio {
     nome: 'videogioco',  
     data: this.date, 
     foto: 'img1',
-    persona:'Pietro'},
+    persona:'Pietro',
+    restituito:false},
 
-    
+
     {id: 2, 
     nome: 'scarpe',  
     data: this.date, 
     foto: 'img2',
-    persona:'Giacomo'},
+    persona:'Giacomo',
+    restituito:true},
 
 
   { id: 3, 
     nome: 'Macchina',  
     data: this.date, 
     foto: 'img2',
-    persona:'Leonardo'}];
+    persona:'Leonardo',
+    restituito:false}];
   }
   
   

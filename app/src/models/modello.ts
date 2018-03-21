@@ -6,6 +6,6 @@ export class itemprestati{
     data: string;
     foto: string; 
     persona: string;
+    restituito: boolean;
 
-    
 }
