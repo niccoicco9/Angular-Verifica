@@ -9,7 +9,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { ModicaAggiungi } from '../pages/interactionpage/interactionpage';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { DetailPage } from '../pages/detail/detail';
 import { ProviderServizio } from '../providers/oggettiprovider/oggettiprovider';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { ProviderServizio } from '../providers/oggettiprovider/oggettiprovider';
     MyApp,
     HomePage,
     TabsPage,
-    DetailPage,
     ModicaAggiungi
   ],
   imports: [
@@ -29,7 +27,6 @@ import { ProviderServizio } from '../providers/oggettiprovider/oggettiprovider';
     MyApp,
     HomePage,
     TabsPage,
-    DetailPage,
     ModicaAggiungi
   ],
   providers: [
@@ -39,6 +36,7 @@ import { ProviderServizio } from '../providers/oggettiprovider/oggettiprovider';
     NativeStorage,
     ProviderServizio,
     Camera,
+    
     
     
     

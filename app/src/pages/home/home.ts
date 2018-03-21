@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,Platform, ModalController } from 'ionic-angular';
 import { ModicaAggiungi } from '../../pages/interactionpage/interactionpage';
 import { itemprestati } from '../../models/modello';
 import { ProviderServizio } from '../../providers/oggettiprovider/oggettiprovider';
+import { NativeStorage } from '@ionic-native/native-storage';
+
 
 
 @Component({
@@ -11,7 +13,7 @@ import { ProviderServizio } from '../../providers/oggettiprovider/oggettiprovide
 })
 export class HomePage {
   prestiti: itemprestati[] = [];
-  constructor(private prestitoProvider: ProviderServizio, public navCtrl: NavController) {
+  constructor(private nativeStorage: NativeStorage, private prestitoProvider: ProviderServizio, public navCtrl: NavController) {
     this.prestitoProvider .getdelloggetto().subscribe(prestiti => this.prestiti = prestiti);
   }
   
@@ -28,3 +30,6 @@ export class HomePage {
     this.prestitoProvider.removeItem(prestito.id);
   }
 }
+
+
+
