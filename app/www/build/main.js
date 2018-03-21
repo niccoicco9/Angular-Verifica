@@ -52,49 +52,12 @@ var ModicaAggiungi = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-interactionpage',template:/*ion-inline-start:"c:\Users\Carlo\Desktop\verificafinale\Angular-Verifica\app\src\pages\interactionpage\interactionpage.html"*/'<ion-header>\n\n<ion-navbar>\n\n      <ion-title>{{selector}}</ion-title>\n\n    </ion-navbar>\n\n  \n\n  </ion-header>\n\n  \n\n  \n\n  <ion-content padding>\n\n\n\n    <form (ngSubmit)="selector === \'modifica\' ? modificaEff() : aggMemo()">\n\n      <ion-item>\n\n        <ion-label>Oggetto Prestato</ion-label>\n\n        <ion-input type="text" [(ngModel)]="prestito.nome" name="nome"></ion-input>\n\n      </ion-item>\n\n\n\n\n\n      <ion-item>\n\n          <ion-label>A Chi</ion-label>\n\n          <ion-input type="text" [(ngModel)]="prestito.persona" name="prestito"></ion-input>\n\n  </ion-item>\n\n\n\n\n\n      <ion-item>\n\n        <ion-label>Quando</ion-label>\n\n        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="prestito.data" name="data"></ion-datetime>\n\n      </ion-item>\n\n      <ion-item>\n\n\n\n     \n\n\n\n        <ion-label>Foto</ion-label>\n\n        <ion-input [(ngModel)]="prestito.foto" name="foto"></ion-input>\n\n      </ion-item>\n\n\n\n       <ion-item>\n\n        <ion-label>Restituito</ion-label>\n\n        <ion-toggle [(ngModel)]="prestito.restituito" name="siono"></ion-toggle>\n\n      </ion-item>\n\n\n\n      <button ion-button type="submit" block>Aggiungi / Modifica L\'oggetto</button>\n\n    </form>\n\n  </ion-content>'/*ion-inline-end:"c:\Users\Carlo\Desktop\verificafinale\Angular-Verifica\app\src\pages\interactionpage\interactionpage.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_oggettiprovider_oggettiprovider__["a" /* ProviderServizio */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__providers_oggettiprovider_oggettiprovider__["a" /* ProviderServizio */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_oggettiprovider_oggettiprovider__["a" /* ProviderServizio */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _c || Object])
     ], ModicaAggiungi);
     return ModicaAggiungi;
+    var _a, _b, _c;
 }());
 
-/*
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { AddModifyPage } from '../add-modify/add-modify';
-import { Oggetto } from '../../models/oggetto';
-import { OggettoProvider } from '../../providers/oggetto/oggetto';
-import { NativeStorage } from '@ionic-native/native-storage';
-@Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
-})
-export class HomePage {
-  oggetti: Oggetto[] = [];
-  constructor(private nativeStorage: NativeStorage, private oggettoProvider: OggettoProvider, public navCtrl: NavController) {
-
-  }
-  ionViewDidLoad(){
-    this.nativeStorage.getItem('oggetti').then(oggetti => {
-      this.oggetti = oggetti;
-      alert('si');
-      this.oggettoProvider.setOggetti(this.oggetti);
-      }).catch((error) => {
-        console.log(error);
-        alert('no');
-        this.oggettoProvider.setOggetti(this.oggetti);
-      });
-  }
-  addItem(){
-    this.navCtrl.push(AddModifyPage, {selector: 'Aggiungi'});
-  }
-  rimuoviOggetto(oggetto: Oggetto){
-    this.oggettoProvider.removeOggetto(oggetto.id);
-  }
-  modificaOggetto(oggetto: Oggetto) {
-    this.navCtrl.push(AddModifyPage, {selector: 'modifica', oggetto: oggetto} );
-  }
-}
-*/
 //# sourceMappingURL=interactionpage.js.map
 
 /***/ }),
@@ -374,10 +337,9 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"c:\Users\Carlo\Desktop\verificafinale\Angular-Verifica\app\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-buttons start>\n\n      <button (click)="aggiungi()" ion-button icon-only>\n\n        <ion-icon name="add-circle-outline"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>Home</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <h2>Prestiti</h2>\n\n  <ion-list>\n\n    <ion-item-sliding #item *ngFor="let prestito of prestiti">\n\n\n\n\n\n        <ion-item color="{{prestito.restituito ? \'secondary\' : \'danger\'}}">\n\n          <ion-avatar item-start>\n\n            <img src="jonny.png">\n\n          </ion-avatar>\n\n         \n\n            \n\n            <h2>{{prestito.nome}}</h2>\n\n            \n\n            <p class="data">{{prestito.persona}} -  data {{prestito.data | date: \'dd/MM/yy\'}}</p>\n\n       \n\n          \n\n\n\n        </ion-item>\n\n         \n\n        \n\n    \n\n        \n\n          \n\n\n\n          <ion-item-options side="right">\n\n            <button ion-button (click)="modificaItem(prestito)" color="default" >Modifica</button>\n\n            <button ion-button (click)="rimuovi(prestito)"  color="danger" >Elimina</button>\n\n\n\n          </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n</ion-content>'/*ion-inline-end:"c:\Users\Carlo\Desktop\verificafinale\Angular-Verifica\app\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__providers_oggettiprovider_oggettiprovider__["a" /* ProviderServizio */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_oggettiprovider_oggettiprovider__["a" /* ProviderServizio */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_native_storage__["a" /* NativeStorage */], __WEBPACK_IMPORTED_MODULE_3__providers_oggettiprovider_oggettiprovider__["a" /* ProviderServizio */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map
