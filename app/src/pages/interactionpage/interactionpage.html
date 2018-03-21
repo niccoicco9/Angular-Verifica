@@ -1,0 +1,43 @@
+<ion-header>
+<ion-navbar>
+      <ion-title>{{selector}}</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+
+    <form (ngSubmit)="selector === 'modifica' ? modificaEff() : aggMemo()">
+      <ion-item>
+        <ion-label>Oggetto Prestato</ion-label>
+        <ion-input type="text" [(ngModel)]="prestito.nome" name="nome"></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+          <ion-label>A Chi</ion-label>
+          <ion-input type="text" [(ngModel)]="prestito.persona" name="prestito"></ion-input>
+  </ion-item>
+
+
+      <ion-item>
+        <ion-label>Quando</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="prestito.data" name="data"></ion-datetime>
+      </ion-item>
+      <ion-item>
+
+     
+
+        <ion-label>Foto</ion-label>
+        <ion-input [(ngModel)]="prestito.foto" name="foto"></ion-input>
+      </ion-item>
+
+       <ion-item>
+        <ion-label>Restituito</ion-label>
+        <ion-toggle [(ngModel)]="prestito.restituito" name="siono"></ion-toggle>
+      </ion-item>
+
+      <button ion-button type="submit" block>Aggiungi / Modifica L'oggetto</button>
+    </form>
+  </ion-content>
